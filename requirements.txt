@@ -3,4 +3,3 @@ django-crispy-forms==1.7.0
 pytz==2017.3
 django-richtextfield==1.2.1
 django-tinymce==2.8.0
- GNU gettext tools 0.15 or newer installed
