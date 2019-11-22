@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Mes Fiches </li>
+    </ol>
+  </nav>
+  <a href="{% url 'students:case_add' %}" class="btn btn-primary mb-3" role="button">Ajouter une Fiche</a>
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Fiche</th>
+          <th>School</th>
+          <th>Questions</th>
+          <th>Taken</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for case in cases %}
+          <tr>
+            <td class="align-middle"><a href="{% url 'students:case_change' case.pk %}">{{ case.title_case }}</a></td>
+            <td class="align-middle">{{ case.school.get_html_badge }}</td>
+            <td class="align-middle"></td>
+            <td class="align-middle"></td>
+            <td class="text-right">
+              <a href="" class="btn btn-primary">View results</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="5">You haven't created any quiz yet.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

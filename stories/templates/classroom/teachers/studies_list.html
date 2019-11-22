@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Fiche</th>
+          <th>School</th>
+          <th>State</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for case in teacher_studies %}
+          <tr>
+            <td class="align-middle">{{ case.title_case }}</td>
+            <td class="align-middle">{{ case.title_case }}</td>
+            <td class="align-middle">{{ case.title_case }}</td>
+              <a href=" " class="btn btn-primary">Start evaluation</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4"> Message 1.</td>
+          </tr>
+        {% endfor %}
+       
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
